@@ -36,6 +36,7 @@ Run the following command to run to install dependencies of this application int
 
 ```shell script
 pip3 install -r requirements.txt
+pip3 install -r dev_requirements.txt
 ```
 
 ### Add additional pip dependencies
@@ -53,12 +54,35 @@ pip3 freeze > requirements.txt
 
 Run the application by running the following commands:
 ```shell script
-export FLASK_APP=src/api/run.py
+export FLASK_APP=api/run.py
 flask run
 ```
 
-## Cleanup
+### Linting Code
 
+Run the following script to perform code linting on your application
+
+```shell script
+flake8 api
+```
+
+### Running  Tests
+
+Run the following command to run tests:
+
+```shell script
+
+```
+
+### Checking Test Code Coverage 
+
+Run the following command to run the coverage report for your code:
+
+```shell script
+
+```
+
+## Cleanup
 
 Stop the application by running `Command (⌘) + c` 
  
@@ -98,3 +122,4 @@ zappa undeploy beta
 **References:**
 
 - https://hackernoon.com/deploy-a-serverless-flask-application-on-aws-lambda-d8ca58af42a4
+- https://github.com/majackson/cookiecutter-alexa-skill-flaskask-zappa
