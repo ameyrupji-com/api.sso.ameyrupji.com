@@ -9,6 +9,7 @@
         "environment_variables": {
             "S3SQLite_bucket": "api.sso.beta.ameyrupji.com-data"
         },
-        "exclude": ["tests"]
+        "exclude": ["tests"],
+        "keep_warm": false
     }
 }
