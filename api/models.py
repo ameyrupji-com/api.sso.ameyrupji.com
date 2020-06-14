@@ -1,4 +1,4 @@
-from api import app, db
+from api.settings import db
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -36,6 +36,7 @@ class UserRoles(db.Model):
 
 
 # Create all database tables
+print("Creating DB!")
 db.create_all()
 
 ## Adding some dummy data!!!

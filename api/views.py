@@ -1,4 +1,7 @@
-from api import app, db
+import os
+
+from api import app
+from api.settings import db
 from flask import Flask, request
 from .models import Role, User, UserRoles
 from flask_restless import APIManager
@@ -8,6 +11,7 @@ def about():
   return {
     "app": "SSO - Amey Rupji",
     "version": "1.0 - Beta",
+    "db": os.environ['S3SQLite_bucket']
   }
 
 @app.route("/")
@@ -29,7 +33,8 @@ def index():
 
 # Create the Flask-Restless API manager.
 url_prefix= "/"
-manager = APIManager(app, flask_sqlalchemy_db=db, )
+manager = APIManager(app, flask_sqlalchemy_db=db)
+
 
 # Create API endpoints, which will be available at /<tablename> by
 # default. Allowed HTTP methods can be specified as well.
@@ -43,3 +48,7 @@ manager.create_api(UserRoles, methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
 
 ## TODO: Model validations
 # https://flask-restless.readthedocs.io/en/stable/customizing.html#capturing-validation-errors
+
+
+## TODO: enable CORS
+# https://flask-restless.readthedocs.io/en/stable/customizing.html#enabling-cross-origin-resource-sharing-cors
